@@ -16,9 +16,30 @@ public class Register {
             new Denomination("Penny", 0.01, "Coin", "Penny.jpg"));
 
 
+            public Purse makeChange(double amount) {
+                Purse purse = new Purse();
+                if (amount == 0.0) {
+                    System.out.println("Empty Purse");
+                }
+                for (Denomination d : denom) {
+                    while (amount >= d.amt()) {
 
+                        if (amount >= d.amt()) {
+                            purse.add(d, 1);
+                            amount -= d.amt();
+                        }
+                        if (amount == 0.0) {
+                            break;
+                        }
 
+                    }
+                }
+                return purse;
+            }
 
-
-
+    public static void main(String[] args) {
+        Register register = new Register();
+        Purse purse = register.makeChange(150.76);
+        System.out.println(purse);
+    }
 }
