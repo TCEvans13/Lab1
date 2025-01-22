@@ -1,3 +1,5 @@
+package ChangeMaker;
+
 public record Denomination() {
     public static void main(String[] args) {
         //arrays of strings and strings used for naming notes and coins
